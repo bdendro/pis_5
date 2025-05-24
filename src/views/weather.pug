@@ -1,0 +1,26 @@
+extends layout.pug
+
+block content
+  h1 Погода
+
+  form(method="GET", action="/weather")
+    .mb-3
+      label.form-label(for="city") Місто
+      input.form-control(type="text", name="city", id="city", placeholder='Enter city name in English...' required)
+
+    button.btn.btn-primary(type="submit") Дізнатись погоду
+
+  if weather
+    h3.mb-3 Результат:
+    ul.list-group
+      li.list-group-item
+        strong Місто: #{weather.city || 'Unknown'}
+      li.list-group-item
+        strong Температура: #{typeof weather.temperature === 'number' ? weather.temperature : 'N/A'}°C
+      li.list-group-item
+        strong Вологість: #{typeof weather.humidity === 'number' ? weather.humidity : 'N/A'}%
+      li.list-group-item
+        strong Опис: #{weather.description || 'Unknown'}
+      li.list-group-item
+        strong Дата останнього оновлення: #{weather.date || 'Unknown'}
+

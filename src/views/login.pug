@@ -1,0 +1,15 @@
+extends layout.pug
+
+block content
+  h1 Логін
+
+  form(method="POST", action="/login")
+    .mb-3
+      label.form-label(for="login") Логін
+      input.form-control(type="text", name="login", id="login", required)
+
+    .mb-3
+      label.form-label(for="password") Пароль
+      input.form-control(type="password", name="password", id="password", required)
+
+    button.btn.btn-success(type="submit") Увійти

@@ -1,0 +1,7 @@
+extends layout.pug
+
+block content
+  h1 Інформація про користувача
+
+  if user
+    p #{user.name}, #{user.course} курс, група #{user.group}
